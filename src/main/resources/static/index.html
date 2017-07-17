@@ -1,349 +1,72 @@
 ﻿<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-<title>Winson Resume</title>
-<!-- Meta -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">    
-<link rel="shortcut icon" href="">  
-<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<!-- Global CSS -->
-<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
-<!-- Plugins CSS -->
-<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+	<title>Winson Resume</title>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<!-- Global CSS -->
+	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
 
-<!-- Theme CSS -->  
-<link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+	<!-- Theme CSS -->
+	<link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
 
-</head> 
+</head>
 
 <body>
+<div id="app">
+	<header class="header">
+		<header-top-bar :top-bar="topBar"></header-top-bar>
 
-<header class="header">
-	<div class="top-bar container-fluid">
-		<div class="actions">
-			<a class="btn hidden-xs" href="mailto:648181015@qq.com"><i class="fa fa-paper-plane" aria-hidden="true"></i>邮件联系我</a>
-		</div><!--//actions-->
-		<ul class="social list-inline">
-			<li><a href="https://github.com/WinsonOne" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-		</ul><!--//social-->
-	</div><!--//top-bar-->
-	
-	<div class="intro">
-		<div class="container text-center">
-			<h1 class="name">Winson One</h1>
-			<div class="title">Java Web Developer</div>
-			<div class="profile">
-				<p>大二接触计算机编程,随后在专业课中选择了oracle数据库、java web开发、信息管理系统等专业课程。14年毕业后一直从事java web开发工作,开发工作中一般使用Spring Boot、MyBatis、Spring Data JPA、Thymeleaf、Vue等。自认为是一个技术宅,平时喜欢逛一些开源社区或者github学一些自己感兴趣的东西,立志成为一个全栈工程师。</p>
-			</div><!--//profile-->
+		<header-intro :my-profile="myProfile"></header-intro>
+
+		<header-contact-info :contact-info="contactInfo"></header-contact-info>
+
+		<page-nav :page-navs="pageNavs"></page-nav>
+
+	</header><!--//header-->
+
+	<div class="wrapper container">
+		<working-experience :experiences="experiences"></working-experience>
+
+		<education-section :education="education"></education-section>
+
+		<skill-section :skills="skills"></skill-section>
+
+		<project-section :projects="projects"></project-section>
+
+	</div><!--//wrapper-->
+
+	<footer class="footer text-center">
+		<div class="container">
+			<small class="copyright">Copyright &copy; 2017.Winson One.</small>
 		</div><!--//container-->
-	</div><!--//intro-->
-	
-	<div class="contact-info">
-		<div class="container text-center">
-			<ul class="list-inline">
-				<li class="email"><i class="fa fa-envelope"></i><a href="mailto:648181015@qq.com">winson.one@website.com</a></li>
-				<li><i class="fa fa-phone"></i> <a href="tel: 1591 **2 ***2">1591 **2 ***2</a></li>
-			</ul>
-		</div><!--//container-->
-	</div><!--//contact-info-->
-	
-	<div class="page-nav-space-holder hidden-xs">
-		<div id="page-nav-wrapper" class="page-nav-wrapper text-center">
-			<div class="container">
-				<ul id="page-nav" class="nav page-nav list-inline">
-					<li><a class="scrollto" href="#experiences-section">工作经验</a></li>
-					<li><a class="scrollto" href="#eudcation-section">教育情况</a></li>
-					<li><a class="scrollto" href="#skills-section">开发技能</a></li>
-					<li><a class="scrollto" href="#portfolio-section">项目展示</a></li>
-				</ul><!--//page-nav-->
-			</div>
-		</div><!--//page-nav-wrapper-->
-	</div>
-	
-</header><!--//header-->
-
-<div class="wrapper container">
-	<section id="experiences-section" class="experiences-section section">
-		<h2 class="section-title">工 作 经 验</h2>
-		<div class="timeline">
-			
-			<div class="item">
-				<div class="work-place">
-					<h3 class="place">华软集团</h3>
-					<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i>广州</div>
-				</div>
-				<div class="job-meta">
-					<div class="title">中级java开发工程师</div>
-					<div class="time">2016 - 2017</div>
-				</div><!--//job-meta-->
-				<div class="job-desc">
-					<p>
-						华软集团是一个做智能交通的公司,本人所在的部门只要是做粤通卡的空中充值业务。
-						工作期间除了粤通卡充值系统的日常开发维护,比如报表功能开发、个人用户升级功能等。
-						另外还参与了一些新系统的开发,如设备管理系统、湖南空中充值系统。
-					</p>
-				</div><!--//job-desc-->
-			</div><!--//item-->
-			
-			<div class="item">
-				<div class="work-place">
-					<h3 class="place">华南资讯</h3>
-					<div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i>广州</div>
-				</div>
-				<div class="job-meta">
-					<div class="title">初级java开发工程师</div>
-					<div class="time">2014 - 2016</div>
-				</div><!--//job-meta-->
-				<div class="job-desc">
-					<p>
-						这是毕业后的第一份工作,在此实习并转正工作了两年。
-						这份工作让自己对软件开发有了更多的认识,主要的工作内容是开发一些信息管理系统。
-						如大学生毕业报到系统、事业单位人事管理系统、专项资金管理系统等。一开始主要是开发为主,主要使用自定义标签完成前端界面。
-						后台框架是Spring + JDBC或Mybatis,数据库是oracle,有时需要编写一些PLSQL。应用部署的服务器为WebLogic。第二年后开始接触设计工作,
-						其中包括数据库设计、系统技术选型等工作。
-					</p>
-				</div><!--//job-desc-->
-			</div><!--//item-->
-			
-		</div><!--//timeline-->
-		
-	</section><!--//section-->
-	
-	<section id="eudcation-section" class="education-section section">
-		<h2 class="section-title">教 育 情 况</h2>
-		<div class="row">
-			<div class="item col-xs-12 col-sm-12">
-				<div class="item-inner">
-					<h3 class="degree">工业工程</h3>
-					<div class="education-body">
-						华南农业大学
-					</div><!--//education-body-->
-					<div class="time">2014 - 2010</div>
-					<div class="desc">
-						华南农业大学是全国重点大学,广东省和农业部共建的“211工程”大学,广东省高水平大学重点建设高校。
-						本专业是学校新开设的专业,归属于学校的信息学院,因此专业的课程不仅涉及机械、管理,还有计算机方面的知识。
-						这与学院中的另外一个信息管理的专业比较相似,只是多了一些机械方面的课程。主要课程包括以下:电工与电子技术基础、
-						高级语言程序设计、管理统计学、生产运作管理与ER、通信与计算机网络、运筹学、java面向对象程序设计、数据库原理与应用、
-						web应用开发技术、管理信息系统等。
-					</div>
-				</div><!--//item-inner-->
-			</div><!--//item-->
-		</div><!--//row-->
-	</section><!--//section-->
-	
-	
-	<section id="skills-section" class="skills-section section text-center">
-		<h2 class="section-title">开 发 技 能</h2>
-		<div class="top-skills">
-			<h3 class="subtitle">主要技能</h3>
-			<div class="row">
-				<div class="item col-xs-12 col-sm-4">
-					<div class="item-inner">
-						<div class="chart-easy-pie text-center">
-							<div class="chart-theme-1 chart" data-percent="85"><span>85</span>%</div>
-						</div>
-						<h4 class="skill-name">Spring &amp; SpringMVC</h4>
-						<div class="level">熟练掌握</div>
-						<div class="desc">
-							开发时使用Spring作为核心容器,无缝集成SpringMVC实现MVC三层模式的控制器层。
-						</div>
-					</div><!--//item-inner-->
-				</div><!--//item-->
-				<div class="item col-xs-12 col-sm-4">
-					<div class="item-inner">
-						<div class="chart-easy-pie text-center">
-							<div class="chart-theme-1 chart" data-percent="80"><span>80</span>%</div>
-						</div>
-						<h4 class="skill-name">Spring Boot</h4>
-						<div class="level">掌握使用</div>
-						<div class="desc">
-							 Spring Boot框架简化了以往开发应用的框架集成,大大减少以往框架集成的配置文件。
-							 使用特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置,框架提供了各种快速集成的starter依赖。
-						</div>
-					</div><!--//item-inner-->
-				</div><!--//item-->
-				<div class="item col-xs-12 col-sm-4">
-					<div class="item-inner">
-						<div class="chart-easy-pie text-center">
-							<div class="chart-theme-1 chart" data-percent="80"><span>80</span>%</div>
-						</div>
-						<h4 class="skill-name">Mybatis &amp; JPA</h4>
-						<div class="level">掌握使用</div>
-						<div class="desc">
-							在数据库层操作常用Mybatis,不过对于一些简单的数据库层操作也会使用JPA,这样可以快速开发,少写一些简单的增删改查语句。
-							另外JPA也可以执行标准SQL查询,也可完成复杂查询以及查询结果与对象的映射。
-						</div>
-					</div><!--//item-inner-->
-				</div><!--//item-->
-			</div><!--//row-->
-		</div><!--//top-skills-->
-		
-		<div class="other-skills">
-			<h3 class="subtitle">其他技能</h3>
-			<div class="misc-skills">
-				<span class="skill-tag">Maven</span>
-				<span class="skill-tag">Git</span>
-				<span class="skill-tag">SVN</span>
-				<span class="skill-tag">IDEA</span>
-				<span class="skill-tag">PowerDesign</span>
-				<br>
-				<span class="skill-tag">Thymeleaf</span>
-				<span class="skill-tag">Vue</span>
-				<span class="skill-tag">Element UI</span>
-				<span class="skill-tag">Easy UI</span>
-				<span class="skill-tag">Bootstrap</span>
-			</div>
-		</div><!--//other-skills-->
-		
-	</section><!--//skills-section-->
-	
-	<section id="portfolio-section" class="portfolio-section section">
-		<h2 class="section-title">项目展示</h2>
-		<ul id="filters" class="filters clearfix">
-			<li class="type active" data-filter="*">全部</li>
-			<li class="type" data-filter=".backend">参与项目</li>
-			<li class="type" data-filter=".frontend">个人作品</li>
-		</ul><!--//filters-->
-		<div class="items-wrapper isotope row">
-			<div class="item backend col-md-3 col-xs-6 ">
-				<div class="item-inner">
-					<figure class="figure">
-						<img class="img-responsive" src="assets/images/portfolio/portfolio-1.png" alt="" />
-					</figure>
-					<div class="content text-left">
-						<h3 class="sub-title"><a href="https://cz.96533.com/" target="_blank">粤通卡空中充值门户</a></h3>
-						<div class="meta">Spring+Struts+Hibernate</div>
-						<div class="action"><a href="https://cz.96533.com/" target="_blank">cz96533.com</a></div>
-					</div><!--//content-->    
-					<a class="link-mask" href="https://cz.96533.com/" target="_blank"></a>
-				</div><!--//item-inner-->
-			</div><!--//item-->
-			<div class="item frontend col-md-3 col-xs-6 ">
-				<div class="item-inner">
-					<figure class="figure">
-						<img class="img-responsive" src="assets/images/portfolio/portfolio-2.png" alt="" />
-					</figure>
-					<div class="content text-left">
-						<h3 class="sub-title"><a href="https://git.oschina.net/winsonone/excel" target="_blank">excel导出组件</a></h3>
-						<div class="meta">Apache POI</div>
-						<div class="action"><a href="https://git.oschina.net/winsonone/excel" target="_blank">View on Git</a></div>
-					</div><!--//content-->    
-					<a class="link-mask" href="https://git.oschina.net/winsonone/excel" target="_blank"></a>
-				</div><!--//item-inner-->
-			</div><!--//item-->
-			<div class="item backend col-md-3 col-xs-6 ">
-				<div class="item-inner">
-					<figure class="figure">
-						<img class="img-responsive" src="assets/images/portfolio/portfolio-3.png" alt="" />
-					</figure>
-					<div class="content text-left">
-						<h3 class="sub-title"><a href="http://210.76.66.109:7006/gdweb/ggfw/web/pub/ggfwzyjs.do" target="_blank">专业技术人才管理系统</a></h3>
-						<div class="meta">Spring+SpringMVC+Mybatis+WebService</div>
-						<div class="action"><a href="http://210.76.66.109:7006/gdweb/ggfw/web/pub/ggfwzyjs.do" target="_blank">职称管理系统</a></div>
-					</div><!--//content-->    
-					<a class="link-mask" href="http://210.76.66.109:7006/gdweb/ggfw/web/pub/ggfwzyjs.do" target="_blank"></a>
-				</div><!--//item-inner-->
-			</div><!--//item-->
-			<div class="item frontend col-md-3 col-xs-6 ">
-				<div class="item-inner">
-					<figure class="figure">
-						<img class="img-responsive" src="assets/images/portfolio/portfolio-4.png" alt="" />
-					</figure>
-					<div class="content text-left">
-						<h3 class="sub-title"><a href="https://admin4blog.herokuapp.com/" target="_blank">个人博客后台</a></h3>
-						<div class="meta">Node Express</div>
-						<div class="action"><a href="https://git.heroku.com/admin4blog.git" target="_blank">View on Github</a></div>
-					</div><!--//content-->    
-					<a class="link-mask" href="https://admin4blog.herokuapp.com/" target="_blank"></a>
-				</div><!--//item-inner-->
-			</div><!--//item-->
-			<div class="item backend col-md-3 col-xs-6 ">
-				<div class="item-inner">
-					<figure class="figure">
-						<img class="img-responsive" src="assets/images/portfolio/portfolio-5.png" alt="" />
-					</figure>
-					<div class="content text-left">
-						<h3 class="sub-title"><a href="http://210.76.66.109:7006/gdweb/ggfw/web/pub/ggfwzxzj.do" target="_blank">专项资金管理系统</a></h3>
-						<div class="meta">Spring+SpringMVC+Mybatis+WebService</div>
-						<div class="action"><a href="http://210.76.66.109:7006/gdweb/ggfw/web/pub/ggfwzxzj.do" target="_blank">网上申报系统</a></div>
-					</div><!--//content-->    
-					<a class="link-mask" href="http://210.76.66.109:7006/gdweb/ggfw/web/pub/ggfwzxzj.do" target="_blank"></a>
-				</div><!--//item-inner-->
-			</div><!--//item-->
-			<div class="item backend col-md-3 col-xs-6 ">
-				<div class="item-inner">
-					<figure class="figure">
-						<img class="img-responsive" src="assets/images/portfolio/portfolio-6.png" alt="" />
-					</figure>
-					<div class="content text-left">
-						<h3 class="sub-title"><a href="#">对账结算系统</a></h3>
-						<div class="meta">Spring Boot + Vue</div>
-						<div class="action"><a href="#">trawe.com.cn/</a></div>
-					</div><!--//content-->
-					<a class="link-mask" href="#"></a>
-				</div><!--//item-inner-->
-			</div><!--//item-->
-			
-			<div class="item backend col-md-3 col-xs-6 ">
-				<div class="item-inner">
-					<figure class="figure">
-						<img class="img-responsive" src="assets/images/portfolio/portfolio-7.png" alt="" />
-					</figure>
-					<div class="content text-left">
-						<h3 class="sub-title"><a href="http://bd.gdrc.com/" target="_blank">高校毕业生报到</a></h3>
-						<div class="meta">Spring+Jquery Easy UI</div>
-						<div class="action"><a href="http://bd.gdrc.com/" target="_blank">网上报到系统</a></div>
-					</div><!--//content-->    
-					<a class="link-mask" href="http://bd.gdrc.com/" target="_blank"></a>
-				</div><!--//item-inner-->
-			</div><!--//item-->
-			
-			<div class="item frontend col-md-3 col-xs-6 ">
-				<div class="item-inner">
-					<figure class="figure">
-						<img class="img-responsive" src="assets/images/portfolio/portfolio-8.png" alt="" />
-					</figure>
-					<div class="content text-left">
-						<h3 class="sub-title"><a href="https://winsonresume.herokuapp.com/index.html" target="_blank">个人简历</a></h3>
-						<div class="meta">Spring Boot</div>
-						<div class="action"><a href="https://github.com/WinsonOne/resume" target="_blank">View on Github</a></div>
-					</div><!--//content-->    
-					<a class="link-mask" href="https://winsonresume.herokuapp.com/index.html"></a>
-				</div><!--//item-inner-->
-			</div><!--//item-->
-			
-		</div><!--//item-wrapper-->
-		
-	</section><!--//section-->
-	
-</div><!--//wrapper-->
-
-<footer class="footer text-center">
-	<div class="container">
-		<small class="copyright">Copyright &copy; 2017.Winson One.</small>
-	</div><!--//container-->
-</footer>
-
-<!-- Javascript -->          
+	</footer>
+</div>
+<!-- Javascript -->
 <script type="text/javascript" src="assets/plugins/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
-<script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
+<script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
 <script type="text/javascript" src="assets/plugins/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-<script type="text/javascript" src="assets/plugins/imagesloaded.pkgd.min.js"></script> 
-<script type="text/javascript" src="assets/plugins/isotope.pkgd.min.js"></script>  
+<script type="text/javascript" src="assets/plugins/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/plugins/isotope.pkgd.min.js"></script>
 
 <!-- custom js -->
 <script type="text/javascript" src="assets/js/main.js"></script>
 
 <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
-<script src="assets/js/demo/style-switcher.js"></script>     
-
+<script src="assets/js/demo/style-switcher.js"></script>
+<script src="libs/vue.min.js"></script>
+<script src="assets/js/vueIndex.js"></script>
 </body>
 </html>
